@@ -12,7 +12,7 @@ class DealerController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \App\Http\Resources\Dealer
+     * @return DealerCollection
      */
     public function index()
     {
