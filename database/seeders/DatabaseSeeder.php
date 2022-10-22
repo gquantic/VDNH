@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Dealer;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,6 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Вставляем дилеров
+        Dealer::factory()
+            ->count(50)
+            ->create();
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

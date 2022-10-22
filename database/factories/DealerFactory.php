@@ -17,7 +17,8 @@ class DealerFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->name,
+            'email' => fake()->email,
         ];
     }
 }

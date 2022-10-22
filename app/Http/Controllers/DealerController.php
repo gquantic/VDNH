@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\DealerCollection;
 use App\Models\Dealer;
 use App\Http\Requests\StoreDealerRequest;
 use App\Http\Requests\UpdateDealerRequest;
@@ -11,11 +12,11 @@ class DealerController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\Dealer
      */
     public function index()
     {
-        //
+        return new DealerCollection(Dealer::all());
     }
 
     /**
