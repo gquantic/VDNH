@@ -28,7 +28,7 @@ class AuthController extends Controller
      */
     public function login()
     {
-        $credentials = request(['email', 'password']);
+        $credentials = request(['login', 'password']);
 
         if (! $token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -42,10 +42,11 @@ class AuthController extends Controller
      */
     public function registration(RegisterRequest $request)
     {
+//        exit(var_dump($request->all()));
         $user = new User();
         $user->name = $request->post('name');
-        $user->name = $request->post('login');
-        $user->name = $request->post('phone');
+        $user->login = $request->post('login');
+        $user->phone = $request->post('phone');
         $user->email = $request->post('email');
         $user->password = Hash::make($request->post('password'));
         $user->save();

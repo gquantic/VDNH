@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('exponents', function (Blueprint $table) {
+        Schema::create('exponent_profiles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->string('inn');
+            $table->string('ogrn');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('exponents');
+        Schema::dropIfExists('exponat_profiles');
     }
 };
