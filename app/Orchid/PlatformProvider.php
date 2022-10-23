@@ -57,8 +57,7 @@ class PlatformProvider extends OrchidServiceProvider
 
             Menu::make('Товары')
                 ->icon('basket')
-                ->route('platform.systems.goods')
-                ->divider(),
+                ->route('good.list'),
 
             Menu::make('Отзывы')
                 ->icon('bubble')
