@@ -4,7 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Dealer;
+use App\Models\Good;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,16 +18,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        // Вставляем админа
+        User::query()->create([
+            'name' => 'admin',
+            'email' => 'admin@admin.ru',
+            'phone' => '89956112267',
+            'login' => 'admin',
+            'password' => Hash::make('admin'),
+        ]);
+
         // Вставляем дилеров
         Dealer::factory()
             ->count(50)
             ->create();
 
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // Вставляем товары
+        Good::factory()
+            ->count(1000)
+            ->create();
     }
 }

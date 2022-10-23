@@ -17,7 +17,15 @@ class GoodFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id' => '1', // Admin
+            'title' => fake()->userName(),
+            'price' => round(rand(999, 12000), -2),
+            'properties' => [
+                'color' => fake()->colorName(),
+                'size' => fake()->randomElement([
+                    'M', 'X', 'L', 'XXL'
+                ]),
+            ]
         ];
     }
 }
