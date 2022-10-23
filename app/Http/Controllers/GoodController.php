@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Exponent;
-use App\Http\Requests\StoreExponentRequest;
-use App\Http\Requests\UpdateExponentRequest;
+use App\Models\Good;
+use App\Http\Requests\StoreGoodRequest;
+use App\Http\Requests\UpdateGoodRequest;
 
-class ExponentController extends Controller
+class GoodController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function index()
     {
-        //
+        return Good::all();
     }
 
     /**
@@ -31,10 +31,10 @@ class ExponentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreExponentRequest  $request
+     * @param  \App\Http\Requests\StoreGoodRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreExponentRequest $request)
+    public function store(StoreGoodRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class ExponentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Exponent  $exponent
+     * @param  \App\Models\Good  $good
      * @return \Illuminate\Http\Response
      */
-    public function show(Exponent $exponent)
+    public function show(Good $good)
     {
         //
     }
@@ -53,10 +53,10 @@ class ExponentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Exponent  $exponent
+     * @param  \App\Models\Good  $good
      * @return \Illuminate\Http\Response
      */
-    public function edit(Exponent $exponent)
+    public function edit(Good $good)
     {
         //
     }
@@ -64,11 +64,11 @@ class ExponentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateExponentRequest  $request
-     * @param  \App\Models\Exponent  $exponent
+     * @param  \App\Http\Requests\UpdateGoodRequest  $request
+     * @param  \App\Models\Good  $good
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateExponentRequest $request, Exponent $exponent)
+    public function update(UpdateGoodRequest $request, Good $good)
     {
         //
     }
@@ -76,10 +76,10 @@ class ExponentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Exponent  $exponent
+     * @param  \App\Models\Good  $good
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Exponent $exponent)
+    public function destroy(Good $good)
     {
         //
     }
