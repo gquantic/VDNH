@@ -2,84 +2,65 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
-use Tymon\JWTAuth\Contracts\JWTSubject;
+use Orchid\Platform\Models\User as Authenticatable;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $fillable = [
         'name',
-        'phone',
-        'login',
         'email',
         'password',
+        'permissions',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * The attributes excluded from the model's JSON form.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $hidden = [
         'password',
         'remember_token',
+        'permissions',
     ];
 
     /**
-     * The attributes that should be cast.
+     * The attributes that should be cast to native types.
      *
-     * @var array<string, string>
+     * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'permissions'          => 'array',
+        'email_verified_at'    => 'datetime',
     ];
 
     /**
-     * Get the identifier that will be stored in the subject claim of the JWT.
+     * The attributes for which you can use filters in url.
      *
-     * @return mixed
+     * @var array
      */
-    public function getJWTIdentifier(): mixed
-    {
-        return $this->getKey();
-    }
+    protected $allowedFilters = [
+        'id',
+        'name',
+        'email',
+        'permissions',
+    ];
 
     /**
-     * Return a key value array, containing any custom claims to be added to the JWT.
+     * The attributes for which can use sort in url.
      *
-     * @return array
+     * @var array
      */
-    public function getJWTCustomClaims(): array
-    {
-        return [];
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function goods(): HasMany
-    {
-        return $this->hasMany(Good::class);
-    }
-
-    /**
-     * @return HasOne
-     */
-    public function exponentProfile(): HasOne
-    {
-        return $this->hasOne(ExponentProfile::class);
-    }
+    protected $allowedSorts = [
+        'id',
+        'name',
+        'email',
+        'updated_at',
+        'created_at',
+    ];
 }
