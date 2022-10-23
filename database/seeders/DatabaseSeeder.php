@@ -36,5 +36,9 @@ class DatabaseSeeder extends Seeder
         Good::factory()
             ->count(1000)
             ->create();
+
+        $this->call([
+            CategorySeed::class,
+        ]);
     }
 }

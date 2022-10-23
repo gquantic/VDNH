@@ -32,6 +32,7 @@ Route::group([
 
 Route::resources([
     'users' => \App\Http\Controllers\UserController::class,
+    'categories' => \App\Http\Controllers\CategoryController::class,
     'dealers' => \App\Http\Controllers\DealerController::class,
     'goods' => \App\Http\Controllers\GoodController::class,
 ]);
