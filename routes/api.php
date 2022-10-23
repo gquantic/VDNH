@@ -32,6 +32,7 @@ Route::group([
 
 Route::resources([
     'dealers' => \App\Http\Controllers\DealerController::class,
+    'goods' => \App\Http\Controllers\GoodController::class,
 ]);
 
 Route::get('/', function () {
