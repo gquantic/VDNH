@@ -13,4 +13,9 @@ class Dealer extends Model
         'name',
         'email',
     ];
+
+    public function category()
+    {
+
+    }
 }

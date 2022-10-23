@@ -27,10 +27,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('admin'),
         ]);
 
-        // Вставляем дилеров
-        Dealer::factory()
-            ->count(50)
-            ->create();
 
         // Вставляем товары
         Good::factory()
@@ -40,5 +36,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategorySeed::class,
         ]);
+
+        // Вставляем дилеров
+        Dealer::factory()
+            ->count(50)
+            ->create();
     }
 }
